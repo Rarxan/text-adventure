@@ -3,7 +3,7 @@
 <%
     GameService game = (GameService) session.getAttribute("game");
     if (game == null) {
-        response.sendRedirect("index.jsp");
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
         return;
     }
 %>
@@ -20,8 +20,6 @@
     <input type="text" name="answer" placeholder="Your answer here" required>
     <button type="submit">Submit</button>
 </form>
-
-
 
 </body>
 </html>
