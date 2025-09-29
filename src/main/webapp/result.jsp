@@ -3,7 +3,7 @@
 <%
     GameService game = (GameService) session.getAttribute("game");
     if (game == null) {
-        response.sendRedirect("index.jsp");
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
         return;
     }
 %>
@@ -14,18 +14,11 @@
     <title>Text Adventure - Result</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
             text-align: center;
             padding-top: 100px;
-        }
-
-        h1, h2, p {
-            font-family: 'Lobster', cursive;
-            color: #333;
         }
 
         .container {
@@ -35,9 +28,21 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border: 2px solid #4CAF50;
+            text-align: center;
         }
 
-        a {
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .restart-btn {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
@@ -45,17 +50,31 @@
             color: white;
             background-color: #4CAF50;
             border-radius: 5px;
+            transition: background 0.3s;
+            font-size: 16px;
         }
 
-        a:hover {
+        .restart-btn:hover {
             background-color: #45a049;
         }
     </style>
 
 </head>
 <body>
+<div class="container">
+    <h1>Game Over!</h1>
 
-<h1>Game Over!</h1>
-<p>Congratulations, <%= game.getPlayerName() %>! You finished the adventure.</p>
+    <%if (game.isGameOver()) {%>
+    <p><%= game.getDeathMessage() %></p>
+    <%
+    } else {
+    %>
+    <p>Congratulations, <%= game.getPlayerName() %>! You finished the adventure.</p>
+    <%
+        }
+    %>
+
+    <a class="restart-btn" href="<%= request.getContextPath() %>/welcome.jsp">Play Again</a>
+</div>
 </body>
 </html>
