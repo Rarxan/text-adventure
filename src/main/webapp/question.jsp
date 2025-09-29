@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <title>Text Adventure - Question</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
         body {
             font-family: 'Arial', sans-serif;
@@ -24,7 +24,7 @@
         }
 
         h1, h2, p {
-            font-family: 'Lobster', cursive;
+            font-family: 'Lobster', sans-serif;
             color: #333;
         }
 

@@ -28,7 +28,6 @@ public class StartServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("game", game);
-
         response.sendRedirect(request.getContextPath() + "/question.jsp");
     }
 
