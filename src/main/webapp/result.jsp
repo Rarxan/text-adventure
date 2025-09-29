@@ -69,7 +69,10 @@
     <%
     } else {
     %>
-    <p>Congratulations, <%= game.getPlayerName() %>! You finished the adventure.</p>
+    <h2>Congratulations, <%= game.getPlayerName() %>!</h2>
+    <h1>YOU ARE THE NEW LICH KING!</h1>
+    <p>The throne is yours, darkness bows before you...</p>
+
     <%
         }
     %>
