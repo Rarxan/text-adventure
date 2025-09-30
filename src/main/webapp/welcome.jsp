@@ -10,15 +10,24 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
+            background: url('images/Welcome.jpg') no-repeat center center fixed;
+            background-size: cover;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+
+        }
+        @keyframes fadeIn {
+            to{
+                opacity: 1;
+            }
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.3);
             padding: 50px 60px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -64,7 +73,7 @@
         }
     </style>
 </head>
-
+<body>
 <div class="container">
     <h1>Welcome to the Adventure!</h1>
     <form action="${pageContext.request.contextPath}/start" method="post">
@@ -73,4 +82,5 @@
         <input type="submit" value="Start Game">
     </form>
 </div>
+</body>
 </html>

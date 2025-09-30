@@ -22,11 +22,24 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+
+            background: url('<%= game.getCurrentBackground() %>') no-repeat center center fixed;
+            background-size: cover;
+
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to{
+                opacity: 1;
+            }
         }
 
         h1, p {
             font-family: 'Georgia', serif;
             color: #333;
+            font-weight: bold;
         }
 
         input[type=text] {
@@ -49,7 +62,7 @@
         }
 
         .container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.5);
             padding: 50px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -59,7 +72,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background: url('<%= game.getCurrentBackground() %>') no-repeat center center fixed; background-size: cover;">
 
 <div class="container">
     <h1>Question</h1>

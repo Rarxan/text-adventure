@@ -9,10 +9,12 @@ public class GameService {
     private int currentQuestionIndex;
     private boolean gameOver;
     private String deathMessage;
+    private String resultBackground;
 
     private final Map<Integer, String> questions = new HashMap<>();
     private final Map<Integer, String> correctAnswers = new HashMap<>();
     private final Map<Integer, String> deathMessages = new HashMap<>();
+    private final Map<Integer, String> questionsBackgrounds = new HashMap<>();
 
     public GameService() {
         questions.put(1, "You stand before an ancient castle. Do you enter through the main gate or search for another way in?<br>Options: *MAIN* / *SEARCH*");
@@ -58,6 +60,21 @@ public class GameService {
         questions.put(11, "The dragon is defeated. Do you sit on the throne or leave the castle?<br>Options: *THRONE* / *LEAVE*");
         correctAnswers.put(11, "throne");
         deathMessages.put(11, "You left the castle without claiming your victory!");
+
+        questionsBackgrounds.put(0, "images/Welcome.jpg");
+        questionsBackgrounds.put(1, "images/q1.jpg");
+        questionsBackgrounds.put(2, "images/q2.jpg");
+        questionsBackgrounds.put(3, "images/q3.jpg");
+        questionsBackgrounds.put(4, "images/q4.jpg");
+        questionsBackgrounds.put(5, "images/q5.jpg");
+        questionsBackgrounds.put(6, "images/q6.jpg");
+        questionsBackgrounds.put(7, "images/q7.jpg");
+        questionsBackgrounds.put(8, "images/q8.jpg");
+        questionsBackgrounds.put(9, "images/q9.jpg");
+        questionsBackgrounds.put(10, "images/q10.jpg");
+        questionsBackgrounds.put(11, "images/q11.jpg");
+        questionsBackgrounds.put(12, "images/q12_Arthas.jpg");
+        questionsBackgrounds.put(13, "images/GameOver.jpg");
 
     }
 
@@ -110,4 +127,25 @@ public class GameService {
     public String getDeathMessage() {
         return deathMessage;
     }
+
+    public String getCurrentBackground() {
+        if (gameOver) {
+            return questionsBackgrounds.get(13);
+        } else if (currentQuestionIndex == questionsBackgrounds.size()) {
+            return questionsBackgrounds.get(12);
+        } else if (currentQuestionIndex == 0) {
+            return questionsBackgrounds.get(0);
+        } else {
+            return questionsBackgrounds.get(currentQuestionIndex);
+        }
+    }
+
+    public String getResultBackground() {
+        return resultBackground;
+    }
+    public void setResultBackground(String resultBackground) {
+        this.resultBackground = resultBackground;
+    }
+
+
 }

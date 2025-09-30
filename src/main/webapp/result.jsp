@@ -6,6 +6,13 @@
         response.sendRedirect(request.getContextPath() + "/index.jsp");
         return;
     }
+
+    String resultBackground;
+    if (game.isGameOver()) {
+        resultBackground = "images/GameOver.jpg";
+    } else {
+        resultBackground = "images/q12_Arthas.jpg";
+    }
 %>
 
 <html>
@@ -16,13 +23,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+            background: url('<%= resultBackground %>') no-repeat center center fixed;
+            background-size: cover;
             text-align: center;
             padding-top: 100px;
         }
 
         .container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.3);
             padding: 50px;
             display: inline-block;
             border-radius: 10px;
