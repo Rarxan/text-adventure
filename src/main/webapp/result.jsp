@@ -11,7 +11,7 @@
     if (game.isGameOver()) {
         resultBackground = "images/GameOver.jpg";
     } else {
-        resultBackground = "images/q12_Arthas.jpg";
+        resultBackground = "images/q12_King.jpg";
     }
 %>
 
@@ -25,18 +25,24 @@
             font-family: Arial, sans-serif;
             background: url('<%= resultBackground %>') no-repeat center center fixed;
             background-size: cover;
-            text-align: center;
-            padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.3);
-            padding: 50px;
-            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.35);
+            padding: 30px 50px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border: 2px solid #4CAF50;
             text-align: center;
+            width: auto;
+            max-width: 600px;
+            margin-bottom: 50px;
         }
 
         h1 {
@@ -65,6 +71,10 @@
         .restart-btn:hover {
             background-color: #45a049;
         }
+
+        .result-text{
+            font-weight: bold;
+        }
     </style>
 
 </head>
@@ -78,8 +88,8 @@
     } else {
     %>
     <h2>Congratulations, <%= game.getPlayerName() %>!</h2>
-    <h1>YOU ARE THE NEW LICH KING!</h1>
-    <p>The throne is yours, darkness bows before you...</p>
+    <h1>YOU ARE THE NEW KING OF THE CASTLE!</h1>
+    <p class="result-text">The throne is yours, and the fire of the hall bows before your power...</p>
 
     <%
         }
