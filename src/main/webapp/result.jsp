@@ -3,7 +3,7 @@
 <%
     GameService game = (GameService) session.getAttribute("game");
     if (game == null) {
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
+        response.sendRedirect(request.getContextPath() + "/welcome.jsp");
         return;
     }
 

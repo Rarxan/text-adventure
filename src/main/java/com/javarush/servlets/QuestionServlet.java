@@ -19,7 +19,7 @@ public class QuestionServlet extends HttpServlet {
         GameService game = (GameService) session.getAttribute("game");
 
         if (game == null) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("welcome.jsp");
             return;
         }
 

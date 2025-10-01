@@ -92,6 +92,9 @@ public class GameService {
     }
 
     public void startGame(String playerName) {
+        if (this.playerName !=null && !gameOver){
+            return;
+        }
         this.playerName = playerName;
         this.currentQuestionIndex = 1;
         this.gameOver = false;

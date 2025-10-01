@@ -76,7 +76,7 @@
 <body>
 <div class="container">
     <h1>Welcome to the Adventure!</h1>
-    <form action="${pageContext.request.contextPath}/start" method="post">
+    <form action="${pageContext.request.contextPath}/start" method="post" onsubmit="this.querySelector('input[type=submit]').disabled = true;">
         <input type="text" name="playerName" placeholder="Enter your name" required>
         <br>
         <input type="submit" value="Start Game">

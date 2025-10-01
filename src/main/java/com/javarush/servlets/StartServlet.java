@@ -16,10 +16,10 @@ public class StartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String playerName = request.getParameter("playerName");
-        System.out.println("!!! StartServlet получил POST-запрос с именем: " + playerName);
+        System.out.println("!!! StartServlet received a POST request with the name: " + playerName);
 
         if (playerName == null || playerName.isEmpty()) {
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            response.sendRedirect(request.getContextPath() + "/welcome.jsp");
             return;
         }
 
