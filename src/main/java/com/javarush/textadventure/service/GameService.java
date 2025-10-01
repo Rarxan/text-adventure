@@ -107,8 +107,6 @@ public class GameService {
     }
 
     public void answerQuestion(String answer) {
-        //LoggerService.log(playerName, "Answer", "Question : " + currentQuestionIndex + ", answer : " + answer);
-
         if (currentQuestionIndex == DRAGON_BATTLE_QUESTION) {
             if (answer.equalsIgnoreCase(ANSWER_SPELL) || answer.equalsIgnoreCase(ANSWER_KEY)) {
                 currentQuestionIndex++;

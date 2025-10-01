@@ -31,29 +31,45 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            transition: background 1.5s ease-in-out;
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.35);
-            padding: 30px 50px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border: 2px solid #4CAF50;
+            position: relative;
+            border: 3px solid #bfa76f;
+            border-radius: 15px;
+            padding: 40px 60px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
             text-align: center;
-            width: auto;
+            animation: fadeIn 1s forwards;
             max-width: 600px;
             margin-bottom: 50px;
+            color: #5b3a00;
+            background: none;
+            overflow: hidden;
         }
 
-        h1 {
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('images/parchment_texture.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.8;
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1, h2, p {
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             font-family: 'Georgia', serif;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 18px;
-            margin: 20px 0;
+            margin: 10px 0;
+            color: #5b3a00;
         }
 
         .restart-btn {
@@ -64,16 +80,14 @@
             color: white;
             background-color: #4CAF50;
             border-radius: 5px;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
             font-size: 16px;
         }
 
         .restart-btn:hover {
             background-color: #45a049;
-        }
-
-        .result-text{
-            font-weight: bold;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
         }
     </style>
 
