@@ -1,0 +1,33 @@
+[2025-10-01 04:09:29] Player : TestPlayer | Action : START | Game started
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 2, answer : SEARCH
+[2025-10-01 04:09:29] Player : TestPlayer | Action : START | Game started
+[2025-10-01 04:09:29] Player : TestPlayer | Action : START | Game started
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 2, answer : search
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 3, answer : torch
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 4, answer : sword
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 5, answer : up
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 6, answer : book
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 7, answer : key
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 8, answer : use
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 9, answer : forward
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 10, answer : hide
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 12, answer : throne
+[2025-10-01 04:09:29] Player : TestPlayer | Action : VICTORY |  The player become a new king
+[2025-10-01 04:09:29] Player : TestPlayer | Action : START | Game started
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 2, answer : search
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 3, answer : torch
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 4, answer : sword
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 5, answer : up
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 6, answer : book
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 7, answer : key
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 8, answer : use
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 9, answer : forward
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 10, answer : hide
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 12, answer : throne
+[2025-10-01 04:09:29] Player : TestPlayer | Action : VICTORY |  The player become a new king
+[2025-10-01 04:09:29] Player : TestPlayer | Action : START | Game started
+[2025-10-01 04:09:29] Player : TestPlayer | Action : GAME_OVER | Reason: You entered the main gate and got ambushed by guards!
+[2025-10-01 04:09:29] Player : TestPlayer | Action : START | Game started
+[2025-10-01 04:09:29] Player : TestPlayer | Action : ANSWER | Question 2, answer : SeArCh
+[2025-10-01 04:09:29] Player : TestPlayer | Action : START | Game started
+[2025-10-01 04:09:29] Player : TestPlayer | Action : START | Game started

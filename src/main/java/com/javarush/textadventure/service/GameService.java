@@ -10,6 +10,9 @@ public class GameService {
     private boolean gameOver;
     private String deathMessage;
     private String resultBackground;
+    private static final int DRAGON_BATTLE_QUESTION = 10;
+    private static final String ANSWER_SPELL = "spell";
+    private static final String ANSWER_KEY = "key";
 
     private final Map<Integer, String> questions = new HashMap<>();
     private final Map<Integer, String> correctAnswers = new HashMap<>();
@@ -93,6 +96,7 @@ public class GameService {
         this.currentQuestionIndex = 1;
         this.gameOver = false;
         this.deathMessage = "";
+        LoggerService.log(playerName, "START", "Game started");
     }
 
     public String getCurrentQuestion() {
@@ -100,29 +104,34 @@ public class GameService {
     }
 
     public void answerQuestion(String answer) {
-        String correct = correctAnswers.get(currentQuestionIndex);
+        //LoggerService.log(playerName, "Answer", "Question : " + currentQuestionIndex + ", answer : " + answer);
 
-        if (currentQuestionIndex == 10) {
-            if (answer.equalsIgnoreCase("spell") || answer.equalsIgnoreCase("key")) {
+        if (currentQuestionIndex == DRAGON_BATTLE_QUESTION) {
+            if (answer.equalsIgnoreCase(ANSWER_SPELL) || answer.equalsIgnoreCase(ANSWER_KEY)) {
                 currentQuestionIndex++;
                 return;
             } else {
-                gameOver = true;
-                deathMessage = deathMessages.get(currentQuestionIndex);
+                handleGameOver();
                 return;
             }
         }
 
+        String correct = correctAnswers.get(currentQuestionIndex);
+
         if (correct != null && correct.equalsIgnoreCase(answer.trim())) {
             currentQuestionIndex++;
         } else {
-            gameOver = true;
-            deathMessage = deathMessages.get(currentQuestionIndex);
+            handleGameOver();
+            return;
         }
+
+        LoggerService.log(playerName, "ANSWER", "Question " + currentQuestionIndex + ", answer : " + answer);
     }
 
-
     public boolean isGameFinished() {
+        if (currentQuestionIndex > questions.size() && !gameOver) {
+            LoggerService.log(playerName, "VICTORY", " The player become a new king");
+        }
         return currentQuestionIndex > questions.size() || gameOver;
     }
 
@@ -153,9 +162,14 @@ public class GameService {
     public String getResultBackground() {
         return resultBackground;
     }
+
     public void setResultBackground(String resultBackground) {
         this.resultBackground = resultBackground;
     }
 
-
+    private void handleGameOver(){
+        gameOver = true;
+        deathMessage = deathMessages.get(currentQuestionIndex);
+        LoggerService.log(playerName, "GAME_OVER", "Reason: " + deathMessage);
+    }
 }
