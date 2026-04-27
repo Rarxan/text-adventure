@@ -63,7 +63,7 @@ public class GameServiceTest {
         game.answerQuestion("use");
         game.answerQuestion("forward");
         game.answerQuestion("hide");
-        game.answerQuestion("key"); // alternative correct answer
+        game.answerQuestion("key");
         game.answerQuestion("throne");
 
         assertTrue(game.isGameFinished());

@@ -4,17 +4,16 @@ import com.javarush.textadventure.service.GameService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/question")
 public class QuestionServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         HttpSession session = request.getSession();
         GameService game = (GameService) session.getAttribute("game");
 
@@ -24,7 +23,8 @@ public class QuestionServlet extends HttpServlet {
         }
 
         String answer = request.getParameter("answer");
-        if (answer != null && !answer.isEmpty()) {
+
+        if (answer != null) {
             game.answerQuestion(answer);
         }
 
@@ -36,7 +36,8 @@ public class QuestionServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
         response.sendRedirect("question.jsp");
     }
 }

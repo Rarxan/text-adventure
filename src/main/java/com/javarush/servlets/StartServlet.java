@@ -2,24 +2,21 @@ package com.javarush.servlets;
 
 import com.javarush.textadventure.service.GameService;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/start")
 public class StartServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String playerName = request.getParameter("playerName");
-        System.out.println("!!! StartServlet received a POST request with the name: " + playerName);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
 
-        if (playerName == null || playerName.isEmpty()) {
-            response.sendRedirect(request.getContextPath() + "/welcome.jsp");
+        String playerName = request.getParameter("playerName");
+
+        if (playerName == null || playerName.trim().isEmpty()) {
+            response.sendRedirect("welcome.jsp");
             return;
         }
 
@@ -28,11 +25,13 @@ public class StartServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("game", game);
-        response.sendRedirect(request.getContextPath() + "/question.jsp");
+
+        response.sendRedirect("question.jsp");
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        response.sendRedirect("welcome.jsp");
     }
 }
