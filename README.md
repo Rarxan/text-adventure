@@ -1,7 +1,6 @@
-# 🏰 Text Adventure Game
+# 🏰 TEXT ADVENTURE
 
-**Text Adventure** is a cinematic browser-based fantasy game where every decision shapes your fate.
-Explore a mysterious castle, face deadly choices, and carve your own path to victory… or ruin.
+### *A Cinematic Browser Experience*
 
 ---
 
@@ -11,45 +10,74 @@ Explore a mysterious castle, face deadly choices, and carve your own path to vic
 
 ---
 
-## ⚔️ Features
+## 🧾 ABOUT THE GAME
 
-### 🧠 Gameplay
+Enter a forgotten castle where every step could be your last.
+Shadows whisper, fire flickers, and your choices shape the story.
 
-* Branching story with meaningful player choices
-* Multiple outcomes: **Victory 👑 / Game Over ☠️**
-* Stateful game logic handled via `GameService`
-* Input processing through Servlets (`StartServlet`, `QuestionServlet`)
+**Text Adventure** is a cinematic, story-driven experience built entirely in the browser.
+No engines. No frameworks. Just pure logic, atmosphere, and immersion.
 
-### 🎬 Cinematic Experience
-
-* Layered **video background system** (fire + smoke)
-* Smooth **fade transitions** between scenes
-* Animated **word-by-word text rendering**
-* Dynamic **background switching per scene**
-* Subtle **camera shake feedback** on actions
-
-### 🎨 Visual Design
-
-* Parchment-style UI with depth and texture
-* Cinematic color grading (contrast, saturation, vignette)
-* Breathing background animation for immersion
-* Carefully tuned readability (text contrast & overlays)
-
-### 🔊 Audio
-
-* Atmospheric musical accompaniment
-* Enhances immersion in the gameplay
-
-### 📊 System & Logging
-
-* Logging system via `LoggerService` (`logs.txt`)
-* Tracks player progress and decisions
+Will you survive… or become part of the legend?
 
 ---
 
-## ⚙️ Tech Stack
+## ✨ KEY FEATURES
 
-* **Java (Servlets, JSP)**
+### ⚔️ Meaningful Choices
+
+Every decision matters.
+Choose wisely — there are no second chances.
+
+* Branching narrative paths
+* Multiple endings (Victory 👑 / Death ☠️)
+* Instant feedback on player actions
+
+---
+
+### 🎬 Cinematic Visuals
+
+Not just text — a fully styled visual experience.
+
+* 🔥 Layered video backgrounds (fire + smoke)
+* 🌫️ Dynamic overlays & color grading
+* 🌑 Soft vignette for depth
+* 🌬️ “Breathing” animated backgrounds
+* 💥 Screen shake feedback on actions
+
+---
+
+### 🧠 Immersive Text System
+
+The story doesn’t just appear — it unfolds.
+
+* Word-by-word animated text
+* Clean readability over dynamic backgrounds
+* Atmospheric narrative presentation
+
+---
+
+### 🔊 Atmosphere First
+
+* Background music enhances immersion
+* Visual + motion + audio work together
+
+---
+
+## 🖼️ VISUAL PREVIEW
+
+* 🏁 Welcome Page  
+* ⚔️ Game Scene  
+* 🗺️ Story Locations (each scene has its own visual atmosphere)
+* 👑 Result Screen  
+
+
+
+---
+
+## ⚙️ TECH STACK
+
+* **Java (Servlets + JSP)**
 * **HTML5 / CSS3 (animations, filters, layering)**
 * **Vanilla JavaScript**
 * **Apache Tomcat**
@@ -57,60 +85,75 @@ Explore a mysterious castle, face deadly choices, and carve your own path to vic
 
 ---
 
-## 🚀 Running Locally
+## 🚀 RUN LOCALLY
 
 ### Requirements
 
 * Java 17 (OpenJDK)
 * Apache Tomcat 9+
 
-### Setup
+---
+
+### 1. Build project
 
 ```bash
 mvn clean install
 ```
 
-### Configuration
+---
 
-| Setting  | Value                             |
-| -------- | --------------------------------- |
-| URL      | http://localhost:8080/welcome.jsp |
-| Port     | 8080                              |
-| Artifact | text-adventure:war exploded       |
-| Context  | /                                 |
+### 2. Deploy to Tomcat
+
+* Open your Tomcat configuration (IDE or standalone)
+* Deploy artifact: `text-adventure:war exploded`
+* Set Application Context: `/`
 
 ---
 
-## 🎨 Screenshots
+### 3. Run server and open in browser
 
-* 🏁 Welcome Page
-* ⚔️ Game Scene
-* 👑 Result Screen
-
----
-
-## 🎯 Project Goal
-
-The goal of this project was to create an **immersive interactive experience in the browser without using game engines**, relying only on Java web technologies and frontend effects.
+```
+http://localhost:8080/welcome.jsp
+```
 
 ---
 
-## 👨‍💻 Author
+## 🧪 SYSTEM FEATURES
+
+* Game state handled via `GameService`
+* Request flow via Servlets (`StartServlet`, `QuestionServlet`)
+* Logging system (`logs.txt`) tracking player actions
+
+---
+
+## 🎯 DESIGN PHILOSOPHY
+
+> “Make it feel alive, even without a game engine.”
+
+This project focuses on:
+
+* Atmosphere over complexity
+* Cinematic feel using simple web technologies
+* Clean interaction between backend logic and frontend visuals
+
+---
+
+## 👤 DEVELOPER
 
 **Yuri (Rarxan)**
-* Game logic, UI/UX, visual effects, and overall design
+
+* Game design
+* Backend logic
+* UI/UX & visual effects
+* Animation system
 
 ---
 
-## 🧠 Summary
+## 🧠 FINAL NOTE
 
-This project demonstrates a complete **MVC-based Java web application** enhanced with:
-
-* Interactive storytelling
-* Cinematic visual presentation
-* Smooth UI/UX transitions
-* Full backend logic and state management
+This isn’t just a web application.
+It’s an experiment in turning classic server-side technology into an immersive interactive experience.
 
 ---
 
-🔥 *Not just a servlet project — a small cinematic game experience in the browser.*
+🔥 *Press Start Game. Make a choice. Accept the consequences.*
