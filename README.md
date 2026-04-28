@@ -80,7 +80,8 @@ The story doesn’t just appear — it unfolds.
 
 <p align="center">
   <img src="screenshots/00_Welcome.png" width="600">
-  <img src="screenshots/06_Question_6.png" width="600">
+  <img src="screenshots/03_Question_3.png" width="600">
+  <img src="screenshots/09_Question_9.png" width="600">
   <img src="screenshots/12_GameOver.png" width="600">
   <img src="screenshots/13_Winner.png" width="600">
 </p>
