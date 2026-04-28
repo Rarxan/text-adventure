@@ -106,7 +106,6 @@
             z-index: -1;
         }
 
-        /* ПЛАВНОЕ ПОЯВЛЕНИЕ ЗАГОЛОВКА */
         h1 {
             font-family: 'Cinzel', serif;
             font-size: 2.6em;
