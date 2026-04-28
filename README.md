@@ -98,7 +98,7 @@ The goal of this project was to create an **immersive interactive experience in 
 ## 👨‍💻 Author
 
 **Yuri (Rarxan)**
-Game logic, UI/UX, visual effects, and overall design
+* Game logic, UI/UX, visual effects, and overall design
 
 ---
 
