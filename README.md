@@ -1,3 +1,15 @@
+---
+
+## 🎬 Cinematic Gameplay
+
+![Welcome Demo](screenshots/welcome.gif)
+
+<p align="center">
+  <em>Cinematic browser experience with dynamic visuals, fire, smoke and immersive storytelling</em>
+</p>
+
+---
+
 # 🏰 TEXT ADVENTURE
 
 ### *A Cinematic Browser Experience*
@@ -7,12 +19,6 @@
 ## 🎮 Live Demo
 
 👉 https://text-adventure-r4rq.onrender.com/
-
----
-
-## 🎬 Gameplay Demo
-
-![Welcome Demo](screenshots/welcome.gif)
 
 ---
 
@@ -72,12 +78,11 @@ The story doesn’t just appear — it unfolds.
 
 ## 🖼️ VISUAL PREVIEW
 
-* 🏁 Welcome Page  
-* ⚔️ Game Scene  
-* 🗺️ Story Locations (each scene has its own visual atmosphere)
-* 👑 Result Screen  
-
-
+<p align="center">
+  <img src="screenshots/00.png" width="600"/>
+  <img src="screenshots/05.png" width="600"/>
+  <img src="screenshots/10.png" width="600"/>
+</p>
 
 ---
 
