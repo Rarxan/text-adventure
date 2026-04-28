@@ -52,6 +52,12 @@
             100% { filter: brightness(1.02) contrast(1.02); }
         }
 
+        @keyframes glowPulse {
+            0%   { filter: brightness(1.2) saturate(1.2); }
+            50%  { filter: brightness(1.5) saturate(1.5); }
+            100% { filter: brightness(1.2) saturate(1.2); }
+        }
+
         .video-layer {
             position: fixed;
             inset: 0;
@@ -63,6 +69,7 @@
             opacity: 0;
             transition: 1.5s ease-in-out;
             mix-blend-mode: screen;
+            animation: glowPulse 3s ease-in-out infinite;
         }
 
         .dark-overlay {
@@ -169,7 +176,6 @@
         .show-video .video-layer { opacity: 0.65; }
         .show-bg .bg-layer { opacity: 1; }
         .show-ui .ui { opacity: 1; transform: translateY(0); }
-
     </style>
 </head>
 

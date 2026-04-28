@@ -109,19 +109,68 @@
         h1 {
             font-family: 'Cinzel', serif;
             font-size: 2.6em;
-            color: #f5d7a1;
             margin-bottom: 20px;
 
-            opacity: 0;
-            transform: translateY(10px);
+            position: relative;
 
-            animation: fadeInTitle 1.5s ease forwards;
+            color: transparent;
+            background: linear-gradient(
+                    90deg,
+                    #f5d7a1 0%,
+                    #fff3c4 25%,
+                    #ffffff 50%,
+                    #fff3c4 75%,
+                    #f5d7a1 100%
+            );
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            animation:
+                    fadeInTitle 1.5s ease forwards,
+                    glowPulse 4s ease-in-out infinite,
+                    shimmerMove 3.5s linear infinite;
+
+            text-shadow:
+                    0 0 10px rgba(255, 220, 170, 0.35),
+                    0 0 18px rgba(255, 200, 130, 0.25),
+                    0 0 28px rgba(255, 170, 90, 0.18);
+        }
+
+        @keyframes shimmerMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
         }
 
         @keyframes fadeInTitle {
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            0% {
+                text-shadow:
+                        0 0 10px rgba(255, 220, 170, 0.35),
+                        0 0 18px rgba(255, 200, 130, 0.25),
+                        0 0 28px rgba(255, 170, 90, 0.18);
+            }
+            50% {
+                text-shadow:
+                        0 0 18px rgba(255, 240, 200, 0.65),
+                        0 0 35px rgba(255, 210, 150, 0.45),
+                        0 0 55px rgba(255, 180, 110, 0.30);
+            }
+            100% {
+                text-shadow:
+                        0 0 10px rgba(255, 220, 170, 0.35),
+                        0 0 18px rgba(255, 200, 130, 0.25),
+                        0 0 28px rgba(255, 170, 90, 0.18);
             }
         }
 
