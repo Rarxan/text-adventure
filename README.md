@@ -79,9 +79,10 @@ The story doesn’t just appear — it unfolds.
 ## 🖼️ VISUAL PREVIEW
 
 <p align="center">
-  <img src="screenshots/00.png" width="600"/>
-  <img src="screenshots/05.png" width="600"/>
-  <img src="screenshots/10.png" width="600"/>
+  <img src="screenshots/00_Welcome.png" width="600">
+  <img src="screenshots/06_Question_6.png" width="600">
+  <img src="screenshots/12_GameOver.png" width="600">
+  <img src="screenshots/13_Winner.png" width="600">
 </p>
 
 ---
