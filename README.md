@@ -10,6 +10,12 @@
 
 ---
 
+## 🎬 Gameplay Demo
+
+![Welcome Demo](screenshots/welcome.gif)
+
+---
+
 ## 🧾 ABOUT THE GAME
 
 Enter a forgotten castle where every step could be your last.
