@@ -18,7 +18,7 @@
 
 ## 🎮 Live Demo
 
-👉 https://text-adventure-r4rq.onrender.com/
+👉 **Play now:** https://text-adventure-r4rq.onrender.com/
 
 ---
 
@@ -154,11 +154,14 @@ This project focuses on:
 ## 👤 DEVELOPER
 
 **Yuri (Rarxan)**
+- GitHub: https://github.com/Rarxan
 
-* Game design
-* Backend logic
-* UI/UX & visual effects
-* Animation system
+Java backend developer focused on interactive web applications.
+
+- Backend logic (Java, Servlets, JSP)  
+- Game design & decision flow  
+- UI/UX & visual effects  
+- Animation systems  
 
 ---
 
