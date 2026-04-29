@@ -77,7 +77,8 @@
             inset: 0;
             z-index: 4;
             pointer-events: none;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 180, 90, 0.10), transparent 60%), radial-gradient(circle at 70% 70%, rgba(120, 200, 255, 0.08), transparent 55%);
+            background: radial-gradient(circle at 30% 30%, rgba(255, 180, 90, 0.10), transparent 60%),
+            radial-gradient(circle at 70% 70%, rgba(120, 200, 255, 0.08), transparent 55%);
         }
 
         .vignette {
@@ -88,23 +89,36 @@
             background: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.22) 80%, rgba(0, 0, 0, 0.4) 100%);
         }
 
+        /* ===== FIXED GAME CONTAINER ===== */
         .container {
             position: relative;
             z-index: 6;
             width: 460px;
+
+            /* 🔥 ЖЁСТКАЯ ВЫСОТА — убирает любые скачки */
+            height: 360px;
+
             padding: 55px;
             border-radius: 15px;
             border: 3px solid #6b4226;
             text-align: center;
+
             opacity: 0;
             transform: translateY(15px);
             transition: 1.2s ease-in-out;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         h1 {
             opacity: 0;
             transform: translateY(12px);
             transition: 1.2s ease;
+            color: #2b160a;
+            margin-bottom: 15px;
         }
 
         h1.visible {
@@ -116,15 +130,11 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.15)), url('images/parchment_texture.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.15)),
+            url('images/parchment_texture.jpg') center/cover no-repeat;
             opacity: 0.5;
             filter: blur(0.3px);
             z-index: -1;
-        }
-
-        h1 {
-            color: #2b160a;
-            margin-bottom: 15px;
         }
 
         .question-text {
@@ -143,15 +153,8 @@
             transition: 1.5s ease;
         }
 
-        .question-text.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .question-text.visible { opacity: 1; transform: translateY(0); }
+        form.visible { opacity: 1; transform: translateY(0); }
 
         input[type=text] {
             width: 80%;
@@ -192,28 +195,37 @@
             border-color: #fff3c4;
         }
 
-        .show .bg-layer {
-            opacity: 1;
-        }
-
-        .show video.fire {
-            opacity: 0.7;
-        }
-
-        .show video.smoke {
-            opacity: 0.35;
-        }
-
-        .show .container {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .show .bg-layer { opacity: 1; }
+        .show video.fire { opacity: 0.7; }
+        .show video.smoke { opacity: 0.35; }
+        .show .container { opacity: 1; transform: translateY(0); }
 
         .word {
             display: inline-block;
             font-weight: 700;
             color: #fff3c4;
-            text-shadow: 0 0 4px rgba(255, 215, 120, 0.35), 0 0 10px rgba(255, 180, 90, 0.25);
+            text-shadow: 0 0 4px rgba(255, 215, 120, 0.35),
+            0 0 10px rgba(255, 180, 90, 0.25);
+        }
+
+        .popup {
+            position: fixed;
+            top: calc(50% - 220px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.85);
+            border: 2px solid #bfa76f;
+            color: #f5d7a1;
+            padding: 12px 20px;
+            border-radius: 10px;
+            z-index: 999;
+            opacity: 0;
+            transition: 0.3s ease;
+            pointer-events: none;
+        }
+
+        .popup.show {
+            opacity: 1;
         }
     </style>
 </head>
@@ -233,12 +245,14 @@
 <div class="color-grade"></div>
 <div class="vignette"></div>
 
+<div class="popup" id="popup"></div>
+
 <div class="container">
     <h1>Question</h1>
 
     <p id="qtext" class="question-text"><%= game.getCurrentQuestion() %></p>
 
-    <form id="form" action="${pageContext.request.contextPath}/question" method="POST">
+    <form id="form" action="${pageContext.request.contextPath}/question" method="POST" onsubmit="return validateAnswer()">
         <input type="text" name="answer" placeholder="Your answer..." required> <br>
         <input type="submit" value="Submit">
     </form>
@@ -250,28 +264,20 @@
 
 <script>
     const music = document.getElementById("bgMusic");
+    const popup = document.getElementById("popup");
 
     window.addEventListener("load", () => {
-        setTimeout(() => {
-            document.body.classList.add("show");
-            highlightOptions();
-        }, 30);
+        setTimeout(() => document.body.classList.add("show"), 30);
 
         const q = document.getElementById("qtext");
         const form = document.getElementById("form");
         const title = document.querySelector("h1");
 
-        setTimeout(() => {
-            title.classList.add("visible");
-        }, 30);
+        setTimeout(() => title.classList.add("visible"), 30);
+        setTimeout(() => q.classList.add("visible"), 50);
+        setTimeout(() => form.classList.add("visible"), 700);
 
-        setTimeout(() => {
-            q.classList.add("visible");
-        }, 50);
-
-        setTimeout(() => {
-            form.classList.add("visible");
-        }, 700);
+        highlightOptions();
 
         if (localStorage.getItem("music") === "on") {
             const t = localStorage.getItem("musicTime");
@@ -287,11 +293,36 @@
         }
     }, 500);
 
+    function showPopup(text) {
+        popup.innerText = text;
+        popup.classList.add("show");
+        setTimeout(() => popup.classList.remove("show"), 4000);
+    }
+
     function highlightOptions() {
         const el = document.getElementById("qtext");
         let html = el.innerHTML;
         html = html.replace(/\*([A-Z]+)\*/g, '<span class="word">$1</span>');
         el.innerHTML = html;
+    }
+
+    function validateAnswer() {
+        const input = document.querySelector("input[name='answer']");
+        const value = input.value.trim().toLowerCase();
+
+        const original = `<%= game.getCurrentQuestion() %>`;
+        const matches = original.match(/\*([A-Z]+)\*/g);
+
+        if (!matches) return true;
+
+        const options = matches.map(o => o.replace(/\*/g, "").toLowerCase());
+
+        if (!options.includes(value)) {
+            showPopup("Please choose: " + options.join(" or "));
+            return false;
+        }
+
+        return true;
     }
 </script>
 
