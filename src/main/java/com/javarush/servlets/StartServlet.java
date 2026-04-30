@@ -13,6 +13,8 @@ public class StartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
+        request.setCharacterEncoding("UTF-8");
+
         String playerName = request.getParameter("playerName");
 
         if (playerName == null || playerName.trim().isEmpty()) {
