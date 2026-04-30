@@ -63,22 +63,34 @@
             inset: 0;
             width: 100%;
             height: 100%;
+
             object-fit: cover;
+            object-position: 45% 60%;
+
             z-index: 2;
             pointer-events: none;
+
             opacity: 0;
             transition: 1.5s ease-in-out;
-            mix-blend-mode: screen;
+
+            mix-blend-mode: lighten;
+
+            filter: brightness(1.15) contrast(1.15) saturate(1.2);
+
+            transform: scale(1.03);
+
             animation: glowPulse 3s ease-in-out infinite;
         }
 
         .dark-overlay {
             position: fixed;
             inset: 0;
+
             background: radial-gradient(circle,
-            rgba(0, 0, 0, 0.20),
-            rgba(0, 0, 0, 0.88)
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.85)
             );
+
             z-index: 3;
             opacity: 1;
         }
@@ -98,11 +110,12 @@
             inset: 0;
             z-index: 4;
             pointer-events: none;
+
             background: radial-gradient(
                     circle,
-                    rgba(0,0,0,0) 45%,
-                    rgba(0,0,0,0.25) 70%,
-                    rgba(0,0,0,0.55) 100%
+                    rgba(0,0,0,0) 60%,
+                    rgba(0,0,0,0.15) 85%,
+                    rgba(0,0,0,0.35) 100%
             );
         }
 
@@ -173,7 +186,7 @@
             box-shadow: 0 0 18px rgba(255, 215, 120, 0.35);
         }
 
-        .show-video .video-layer { opacity: 0.65; }
+        .show-video .video-layer { opacity: 0.75; }
         .show-bg .bg-layer { opacity: 1; }
         .show-ui .ui { opacity: 1; transform: translateY(0); }
     </style>
